@@ -16,6 +16,11 @@ Data Import
     ## ✖ dplyr::lag()    masks stats::lag()
     ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
+``` r
+  library(readxl)
+  library(haven)
+```
+
 Import!
 
 ``` r
@@ -161,3 +166,37 @@ pups_df
     ##  9 #4/2/95/3-3       1       4      13        7       9
     ## 10 #2/2/95/3-2       1       4      NA        8      10
     ## # ℹ 303 more rows
+
+\##Okay what about Excel?
+
+CSVs are great but sometimes you get an excel file.
+
+``` r
+mlb_df = 
+  read_excel("data/data_import_examples/data_import_examples/mlb11.xlsx", )
+```
+
+Import LotR word counts
+
+``` r
+fotr_df = 
+  read_excel("data/data_import_examples/data_import_examples/LotR_Words.xlsx", range = "B3:D6")
+```
+
+## SAS??
+
+Import the PULSE data
+
+``` r
+pulse_df = read_sas("data/data_import_examples/data_import_examples/public_pulse_data.sas7bdat")
+
+pulse_df= 
+  janitor::clean_names(pulse_df)
+```
+
+## Why do I hate read.csv so much??
+
+``` r
+litters_df_base = 
+  read.csv("data/data_import_examples/data_import_examples/FAS_litters.csv")
+```
